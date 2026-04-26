@@ -5,8 +5,7 @@ import symbolLogo from "./assets/spectrovirtu-symbol-moss.svg";
 import applicationBoard from "./assets/spectrovirtu-application-board.png";
 
 const colors = [
-  { name: "Primary Deep Forest", hex: "#264E3C", role: "Signature tone for identity, emphasis, and controlled contrast" },
-  { name: "Deep Moss", hex: "#1B3A2D", role: "Reserved dark field for formal applications and reverse use" },
+  { name: "Primary Deep Forest", hex: "#1A392C", role: "Signature green for identity, emphasis, and controlled contrast" },
   { name: "Warm Off-White", hex: "#F4F1EC", role: "Primary field color for whitespace, paper, and calm presentation" },
   { name: "Soft Sage", hex: "#B8C9C1", role: "Supporting tone for diagrams, dividers, and quiet highlights" },
   { name: "Warm Grey", hex: "#CFCBC5", role: "Neutral layer for technical grids, material notes, and captions" },
@@ -186,7 +185,7 @@ function App() {
           </div>
           <div className="ratio reveal" aria-label="Usage ratio">
             <span style={{ flexBasis: "60%" }}>60% Warm field</span>
-            <span style={{ flexBasis: "25%" }}>25% Deep green</span>
+            <span style={{ flexBasis: "25%" }}>25% Signature green</span>
             <span style={{ flexBasis: "10%" }}>10% Sage / Grey</span>
             <span style={{ flexBasis: "5%" }}>5% Accent</span>
           </div>

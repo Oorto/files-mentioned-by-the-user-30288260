@@ -1,5 +1,5 @@
 :root {
-  --forest: #1b3a2d;
+  --forest: #1a392c;
   --moss: #101714;
   --off-white: #ffffff;
   --sage: #dbe5df;
@@ -488,7 +488,7 @@ main {
 
 .swatch-grid {
   display: grid;
-  grid-template-columns: 1.25fr 0.8fr 0.8fr;
+  grid-template-columns: minmax(280px, 1.18fr) repeat(2, minmax(0, 0.82fr));
   gap: 1px;
   padding: 1px;
   background: var(--line);
@@ -517,12 +517,12 @@ main {
 
 .swatch:first-child {
   grid-row: span 2;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 1fr 190px;
   min-height: 541px;
 }
 
 .swatch:first-child .swatch-color {
-  min-height: 340px;
+  min-height: 0;
 }
 
 .swatch div:last-child {
@@ -1245,13 +1245,13 @@ button:hover {
   }
 
   .swatch:first-child {
-    grid-row: auto;
     grid-column: 1 / -1;
     min-height: 360px;
+    grid-template-rows: 190px 1fr;
   }
 
   .swatch:first-child .swatch-color {
-    min-height: 220px;
+    min-height: 0;
   }
 
   .mockup,
