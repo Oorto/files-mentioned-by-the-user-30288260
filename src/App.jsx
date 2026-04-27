@@ -2,24 +2,31 @@ import { useEffect } from "react";
 import logo from "./assets/spectrovirtu-logo-2026-moss.svg";
 import darkLogo from "./assets/spectrovirtu-logo-2026-dark.svg";
 import symbolLogo from "./assets/spectrovirtu-symbol-moss.svg";
-import applicationBoard from "./assets/spectrovirtu-application-board.png";
+import brandmarkConcept from "./assets/logo-brandmark-concept.png";
+import safezoneLogo from "./assets/logo-safezone-reference.png";
+import usageCenteredLogo from "./assets/logo-usage-centered-2026.png";
+import campaignImage from "./assets/2026_GREEN_LOGO-09.png";
+import digitalStationeryImage from "./assets/2026_GREEN_LOGO-10.png";
+import applicationDetailImage from "./assets/2026_GREEN_LOGO-03.png";
+import colorPaletteImage from "./assets/logo-layout-color-board.png";
+import siteTagImage from "./assets/2026_GREEN_LOGO-05.png";
+import brandBookImage from "./assets/2026_GREEN_LOGO-06.png";
+import vehicleImage from "./assets/2026_GREEN_LOGO-07.png";
 
 const colors = [
-  { name: "Primary Deep Forest", hex: "#1A392C", role: "Signature green for identity, emphasis, and controlled contrast" },
-  { name: "Warm Off-White", hex: "#F4F1EC", role: "Primary field color for whitespace, paper, and calm presentation" },
-  { name: "Soft Sage", hex: "#B8C9C1", role: "Supporting tone for diagrams, dividers, and quiet highlights" },
-  { name: "Warm Grey", hex: "#CFCBC5", role: "Neutral layer for technical grids, material notes, and captions" },
-  { name: "Charcoal", hex: "#2A2A2A", role: "Primary text color for legibility and editorial restraint" }
+  { name: "Deep Forest", hex: "#163B2C", rgb: "22 / 59 / 44", cmyk: "88 / 64 / 85 / 45", role: "Strength, growth, sustainability" },
+  { name: "Basalt Black", hex: "#2A2A2A", rgb: "42 / 42 / 42", cmyk: "93 / 88 / 89 / 80", role: "Stability, depth, foundation" },
+  { name: "Linen Grey", hex: "#C9C4B9", rgb: "201 / 196 / 185", cmyk: "25 / 21 / 26 / 0", role: "Balance, clarity, space" },
+  { name: "Mist Sage", hex: "#B8C9C1", rgb: "184 / 201 / 193", cmyk: "33 / 15 / 25 / 0", role: "Harmony, nature, refinement" },
+  { name: "Warm Ivory", hex: "#ECE8E0", rgb: "236 / 232 / 224", cmyk: "9 / 9 / 12 / 0", role: "Structure, calm, elegance" }
 ];
 
 const applications = [
-  "Identity manual",
-  "Project proposal",
-  "Business card",
-  "Brochure spread",
-  "Tablet website UI",
-  "Instagram grid",
-  "Engineering sheet"
+  { title: "Website and mobile UI", src: digitalStationeryImage, className: "application-image--wide" },
+  { title: "Proposal and stationery", src: applicationDetailImage, className: "application-image--document" },
+  { title: "Brand book system", src: brandBookImage, className: "application-image--wide" },
+  { title: "Construction site tag", src: siteTagImage, className: "application-image--field" },
+  { title: "Vehicle branding", src: vehicleImage, className: "application-image--wide" }
 ];
 
 function SectionHeader({ number, eyebrow, title, note }) {
@@ -96,13 +103,9 @@ function App() {
       <main>
         <section className="cover" id="cover">
           <div className="cover-grid" aria-hidden="true" />
-          <div className="cover-inner reveal">
-            <LogoMark />
-          <div className="cover-copy">
-              <h1>Corporate Identity System</h1>
-              <p>Solar identity for architectural integration.</p>
-            </div>
-          </div>
+          <figure className="cover-board reveal">
+            <img src={campaignImage} alt="SpectroVirtu campaign board: Not Just Construction, But Innovation" />
+          </figure>
         </section>
 
         <section className="panel essence" id="essence">
@@ -151,7 +154,8 @@ function App() {
             <article className="rule-card reveal">
               <span>Clear space</span>
               <div className="clearspace">
-                <LogoMark compact />
+                <span>1x</span>
+                <p>Protected field around all sides of the signature.</p>
               </div>
               <p>Maintain one symbol-width of clear space around every side of the signature.</p>
             </article>
@@ -160,6 +164,41 @@ function App() {
               <div className="size-rule">
                 <LogoMark compact />
                 <small>Digital minimum 140px / Print minimum 35mm</small>
+              </div>
+            </article>
+          </div>
+          <div className="identity-guidelines">
+            <article className="brandmark-card reveal">
+              <span>Brandmark</span>
+              <p>
+                The central mark depicts the sun as a source of power, vitality, and renewable energy. Its circular rhythm connects solar force with architectural precision.
+              </p>
+              <figure className="brandmark-concept">
+                <img src={brandmarkConcept} alt="SpectroVirtu brandmark concept: sun plus architecture equals symbol" />
+              </figure>
+            </article>
+            <article className="safezone-card reveal">
+              <span>Logo safezone</span>
+              <div className="safezone-demo safezone-demo--image">
+                <img src={safezoneLogo} alt="SpectroVirtu centered logo safezone reference" />
+              </div>
+              <p>Keep the top and bottom alignment fields clear. The protected area is measured from the symbol and wordmark relationship.</p>
+            </article>
+            <article className="usage-card reveal">
+              <span>Logo usage</span>
+              <div className="usage-grid">
+                <div>
+                  <LogoMark compact />
+                  <small>Horizontal / primary version</small>
+                </div>
+                <div className="usage-stacked">
+                  <img className="usage-stacked-logo" src={usageCenteredLogo} alt="SpectroVirtu centered / narrow layout" />
+                  <small>Centered / narrow layouts</small>
+                </div>
+                <div>
+                  <img src={symbolLogo} alt="" />
+                  <small>Icon only / favicon and social avatar</small>
+                </div>
               </div>
             </article>
           </div>
@@ -178,7 +217,13 @@ function App() {
                 <div>
                   <h3>{color.name}</h3>
                   <strong>{color.hex}</strong>
-                  <p>{color.role}</p>
+                  <p>
+                    RGB {color.rgb}
+                    <br />
+                    CMYK {color.cmyk}
+                    <br />
+                    {color.role}
+                  </p>
                 </div>
               </article>
             ))}
@@ -189,6 +234,9 @@ function App() {
             <span style={{ flexBasis: "10%" }}>10% Sage / Grey</span>
             <span style={{ flexBasis: "5%" }}>5% Accent</span>
           </div>
+          <figure className="palette-reference reveal">
+            <img src={colorPaletteImage} alt="SpectroVirtu identity color palette application reference" />
+          </figure>
         </section>
 
         <section className="panel typography">
@@ -198,11 +246,21 @@ function App() {
             title="Measured typography for architectural clarity."
           />
           <div className="type-specimen reveal">
-            <p className="type-label">Headline / Avenir Next or geometric sans-serif</p>
+            <p className="type-label">Mont / Regular and Bold</p>
             <h2>Type with quiet precision.</h2>
             <p className="body-sample">
-              Body / Inter. The system favors short lines, open spacing, and precise hierarchy for proposals, specifications, and digital interfaces.
+              Mont defines the identity with clean geometry, open spacing, and a measured balance between technical clarity and premium restraint.
             </p>
+            <div className="mont-samples">
+              <div>
+                <span>Mont - Regular</span>
+                <p>abcdefghijklmnopqrstuvwxyz<br />123456780</p>
+              </div>
+              <div>
+                <span>Mont - Bold</span>
+                <p><strong>abcdefghijklmnopqrstuvwxyz<br />123456780</strong></p>
+              </div>
+            </div>
             <small>Caption / uppercase tracking / metadata, measurements, and system notes</small>
           </div>
           <div className="hierarchy reveal">
@@ -255,6 +313,12 @@ function App() {
             <article className="visual-tile shadow reveal">
               <span>Light direction</span>
             </article>
+            <article className="visual-tile module reveal">
+              <span>Module rhythm</span>
+            </article>
+            <article className="visual-tile detail reveal">
+              <span>Technical detail</span>
+            </article>
           </div>
         </section>
 
@@ -262,16 +326,17 @@ function App() {
           <SectionHeader
             number="07"
             eyebrow="Brand Applications"
-            title="Applications for presentation, specification, and client communication."
+            title="Applications across site, document, field, and mobility."
+            note="The system extends from polished proposals to construction environments, preserving the same spacing, color, and signature discipline."
           />
-          <figure className="application-board reveal">
-            <img src={applicationBoard} alt="SpectroVirtu brand applications across print, digital, engineering, and architectural systems" />
-          </figure>
-          <div className="application-index reveal">
+          <div className="application-gallery reveal">
             {applications.map((item, index) => (
-              <article className="application-index-item" key={item}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <h3>{item}</h3>
+              <article className={`application-image ${item.className}`} key={item.title}>
+                <img src={item.src} alt={`SpectroVirtu ${item.title}`} />
+                <div>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h3>{item.title}</h3>
+                </div>
               </article>
             ))}
           </div>
@@ -331,9 +396,12 @@ function App() {
             </div>
             <div className="board-type">
               <strong>Aa</strong>
-              <p>Avenir Next / Inter</p>
+              <p>Mont / Regular and Bold</p>
             </div>
-            <div className="board-image" />
+            <div className="board-image">
+              <span>System</span>
+              <p>Voice, color, logo, layout, applications, and digital behavior.</p>
+            </div>
             <div className="board-mockup">
               <span>Proposal</span>
               <span>Cards</span>
