@@ -19,10 +19,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background:
     linear-gradient(180deg, #ffffff, var(--off-white) 42rem),
     var(--off-white);
@@ -48,16 +50,29 @@ img {
 
 .site-nav {
   position: fixed;
-  inset: 0 0 auto;
+  top: max(6px, env(safe-area-inset-top));
+  left: clamp(8px, 1.8vw, 26px);
+  right: clamp(8px, 1.8vw, 26px);
   z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 18px clamp(20px, 4.4vw, 72px);
-  border-bottom: 1px solid rgba(16, 23, 20, 0.08);
-  background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(18px);
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 10px clamp(14px, 2.6vw, 32px);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.36)),
+    rgba(236, 232, 224, 0.32);
+  box-shadow:
+    0 22px 54px rgba(16, 23, 20, 0.16),
+    0 2px 10px rgba(16, 23, 20, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.88) inset,
+    0 -1px 0 rgba(16, 23, 20, 0.05) inset;
+  backdrop-filter: blur(28px) saturate(1.35);
+  -webkit-backdrop-filter: blur(28px) saturate(1.35);
 }
 
 .site-nav nav {
@@ -77,6 +92,11 @@ img {
 
 .site-nav a:hover {
   opacity: 0.62;
+}
+
+.site-nav a:focus-visible {
+  outline: 1px solid rgba(22, 59, 44, 0.34);
+  outline-offset: 4px;
 }
 
 .brand-logo {
@@ -226,7 +246,7 @@ main {
 .panel,
 .brand-board {
   position: relative;
-  padding: clamp(96px, 11vw, 172px) clamp(24px, 7vw, 112px);
+  padding: clamp(74px, 9vw, 138px) clamp(24px, 7vw, 112px);
   border-bottom: 0;
 }
 
@@ -246,7 +266,7 @@ main {
   grid-template-columns: 96px minmax(0, 1fr);
   gap: clamp(24px, 6vw, 86px);
   max-width: 1080px;
-  margin-bottom: clamp(44px, 7vw, 92px);
+  margin-bottom: clamp(36px, 5vw, 70px);
 }
 
 .section-header > span {
@@ -1299,7 +1319,7 @@ main {
 
 .application-image {
   position: relative;
-  min-height: 420px;
+  min-height: 0;
   overflow: hidden;
   background: var(--paper);
   border: 1px solid rgba(16, 23, 20, 0.09);
@@ -1317,8 +1337,9 @@ main {
   width: 100%;
   height: 100%;
   min-height: inherit;
-  object-fit: cover;
-  transform: scale(1.01);
+  object-fit: contain;
+  object-position: center;
+  transform: none;
 }
 
 .application-image > div {
@@ -1375,12 +1396,12 @@ main {
 
 .application-image--document {
   min-height: 0;
-  aspect-ratio: 4000 / 1511;
+  aspect-ratio: 1800 / 874;
 }
 
 .application-image--field {
   grid-column: 1 / -1;
-  min-height: 560px;
+  aspect-ratio: 4000 / 2439;
 }
 
 .application-image--document img {
@@ -1389,12 +1410,12 @@ main {
 
 .application-image--wide:nth-child(3) {
   min-height: 0;
-  aspect-ratio: 2048 / 945;
+  aspect-ratio: 4000 / 1987;
 }
 
 .application-image--wide:nth-child(1) {
   min-height: 0;
-  aspect-ratio: 2048 / 807;
+  aspect-ratio: 1740 / 904;
 }
 
 .application-image--wide:nth-child(1) img {
@@ -1406,7 +1427,8 @@ main {
 }
 
 .application-image--wide:nth-child(5) {
-  min-height: 520px;
+  min-height: 0;
+  aspect-ratio: 4018 / 2945;
   grid-column: 1 / -1;
 }
 
@@ -1931,7 +1953,14 @@ button:hover {
   }
 
   .site-nav {
-    align-items: flex-start;
+    top: max(4px, env(safe-area-inset-top));
+    left: 8px;
+    right: auto;
+    width: max-content;
+    max-width: calc(100vw - 16px);
+    margin: 0;
+    align-items: center;
+    padding: 8px 12px;
   }
 
   .site-nav nav {
@@ -1994,7 +2023,7 @@ button:hover {
   .application-image,
   .application-image--field,
   .application-image--wide:nth-child(5) {
-    min-height: 320px;
+    min-height: 0;
   }
 
   .application-image > div {
