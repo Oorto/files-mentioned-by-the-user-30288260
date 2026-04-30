@@ -999,7 +999,7 @@ main {
 
 .clearspace .brand-logo {
   position: absolute;
-  top: calc(50% + 22px);
+  top: 45%;
   left: 50%;
   width: min(300px, 58%);
   transform: translate(-50%, -50%) !important;
