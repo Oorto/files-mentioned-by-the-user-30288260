@@ -154,7 +154,7 @@ function App() {
             <article className="rule-card reveal">
               <span>Clear space</span>
               <div className="clearspace">
-                <span>1x</span>
+                <LogoMark compact />
                 <p>Protected field around all sides of the signature.</p>
               </div>
               <p>Maintain one symbol-width of clear space around every side of the signature.</p>
@@ -246,18 +246,18 @@ function App() {
             title="Measured typography for architectural clarity."
           />
           <div className="type-specimen reveal">
-            <p className="type-label">Mont / Regular and Bold</p>
+            <p className="type-label">DM Sans / Regular and SemiBold</p>
             <h2>Type with quiet precision.</h2>
             <p className="body-sample">
-              Mont defines the identity with clean geometry, open spacing, and a measured balance between technical clarity and premium restraint.
+              DM Sans defines the identity with clean geometry, open spacing, and a measured balance between technical clarity and premium restraint.
             </p>
-            <div className="mont-samples">
-              <div>
-                <span>Mont - Regular</span>
+            <div className="dm-sans-samples">
+              <div className="font-sample--regular">
+                <span>DM Sans - Regular</span>
                 <p>abcdefghijklmnopqrstuvwxyz<br />123456780</p>
               </div>
-              <div>
-                <span>Mont - Bold</span>
+              <div className="font-sample--semibold">
+                <span>DM Sans - SemiBold</span>
                 <p><strong>abcdefghijklmnopqrstuvwxyz<br />123456780</strong></p>
               </div>
             </div>
@@ -396,7 +396,7 @@ function App() {
             </div>
             <div className="board-type">
               <strong>Aa</strong>
-              <p>Mont / Regular and Bold</p>
+              <p>DM Sans / Regular and SemiBold</p>
             </div>
             <div className="board-image">
               <span>System</span>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap");
+
 :root {
   --forest: #163b2c;
   --moss: #2a2a2a;
@@ -9,8 +11,8 @@
   --line: rgba(16, 23, 20, 0.1);
   --shadow: 0 16px 44px rgba(16, 23, 20, 0.06);
   --float-shadow: 0 34px 92px rgba(16, 23, 20, 0.1), 0 1px 0 rgba(255, 255, 255, 0.82) inset;
-  --font-head: "Mont", "Montserrat", "Avenir Next", "Avenir", "Segoe UI", Arial, sans-serif;
-  --font-body: "Mont", "Montserrat", "Inter", "Segoe UI", Arial, sans-serif;
+  --font-head: "DM Sans", "Avenir Next", "Avenir", "Segoe UI", Arial, sans-serif;
+  --font-body: "DM Sans", "Inter", "Segoe UI", Arial, sans-serif;
 }
 
 * {
@@ -59,7 +61,8 @@ img {
   justify-content: space-between;
   gap: 24px;
   margin: 0;
-  padding: calc(10px + env(safe-area-inset-top)) clamp(18px, 4.2vw, 72px) 10px;
+  min-height: 82px;
+  padding: calc(8px + env(safe-area-inset-top)) clamp(18px, 4.2vw, 72px) 8px;
   border: 0;
   border-bottom: 1px solid rgba(16, 23, 20, 0.08);
   border-radius: 0;
@@ -113,7 +116,7 @@ img {
   min-height: auto;
   display: block;
   overflow: hidden;
-  padding: 0;
+  padding: calc(82px + env(safe-area-inset-top)) 0 0;
   background: #ffffff;
   color: var(--moss);
 }
@@ -157,6 +160,7 @@ main {
   z-index: 1;
 }
 
+.cover-hero,
 .cover-inner {
   position: relative;
   z-index: 1;
@@ -167,12 +171,22 @@ main {
   width: 100%;
 }
 
+.cover-hero {
+  min-height: calc(100svh - 82px);
+  padding: clamp(42px, 7vw, 96px) 0 clamp(52px, 7vw, 92px);
+}
+
 .cover-inner .brand-logo {
   filter: none;
 }
 
 .cover-copy {
   max-width: 780px;
+}
+
+.cover-signature {
+  width: min(430px, 64vw);
+  margin: clamp(32px, 5vw, 74px) 0 clamp(34px, 5vw, 76px);
 }
 
 .index-label,
@@ -191,9 +205,9 @@ main {
 .cover h1 {
   margin: 0 0 24px;
   font-family: var(--font-head);
-  font-size: clamp(2.8rem, 5.8vw, 6.2rem);
+  font-size: clamp(3rem, 6.8vw, 7.8rem);
   font-weight: 500;
-  line-height: 0.98;
+  line-height: 0.92;
   letter-spacing: 0;
 }
 
@@ -203,6 +217,108 @@ main {
   color: rgba(16, 23, 20, 0.62);
   font-size: clamp(1.15rem, 2vw, 1.55rem);
   line-height: 1.6;
+}
+
+.hero-architecture {
+  position: relative;
+  min-height: clamp(480px, 70svh, 760px);
+  isolation: isolate;
+}
+
+.hero-architecture::before {
+  content: "";
+  position: absolute;
+  inset: 8% 7% 4% 22%;
+  border: 1px solid rgba(16, 23, 20, 0.11);
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.2)),
+    repeating-linear-gradient(90deg, rgba(22, 59, 44, 0.12) 0 1px, transparent 1px 42px),
+    repeating-linear-gradient(0deg, rgba(22, 59, 44, 0.08) 0 1px, transparent 1px 58px),
+    rgba(236, 232, 224, 0.7);
+  box-shadow: var(--float-shadow);
+  transform: translate3d(0, 0, 0) skewY(-2deg);
+}
+
+.hero-architecture::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 20%;
+  bottom: 10%;
+  height: 1px;
+  background: rgba(16, 23, 20, 0.16);
+  transform: rotate(-7deg);
+  transform-origin: left center;
+}
+
+.hero-surface {
+  position: absolute;
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(16, 23, 20, 0.12);
+  box-shadow: 0 28px 72px rgba(16, 23, 20, 0.13);
+}
+
+.hero-surface--main {
+  inset: 19% 16% 18% 4%;
+  grid-template-columns: repeat(3, 1fr);
+  background: #1f3029;
+  transform: perspective(980px) rotateY(-14deg) rotateZ(-2deg);
+  transform-origin: right center;
+}
+
+.hero-surface--main span {
+  min-height: 100%;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.2), transparent 38%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.16) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, #2c4738, #142b20);
+}
+
+.hero-surface--main span:nth-child(2) {
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.12), transparent 48%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.13) 0 1px, transparent 1px 34px),
+    linear-gradient(180deg, #22382e, #10251c);
+}
+
+.hero-surface--main span:last-child {
+  border-right: 0;
+}
+
+.hero-surface--shadow {
+  inset: 27% 8% 8% 28%;
+  background:
+    repeating-linear-gradient(90deg, rgba(42, 42, 42, 0.1) 0 1px, transparent 1px 26px),
+    rgba(201, 196, 185, 0.58);
+  transform: perspective(860px) rotateY(-18deg) rotateZ(5deg);
+  box-shadow: none;
+  opacity: 0.72;
+  z-index: -1;
+}
+
+.hero-sun {
+  position: absolute;
+  top: 10%;
+  right: 13%;
+  width: clamp(120px, 14vw, 210px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(22, 59, 44, 0.18);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(236, 232, 224, 0.94) 0 31%, rgba(184, 201, 193, 0.34) 32% 33%, transparent 34%),
+    repeating-conic-gradient(from 0deg, rgba(22, 59, 44, 0.26) 0 5deg, transparent 5deg 18deg);
+  box-shadow: 0 26px 70px rgba(22, 59, 44, 0.12);
+}
+
+.hero-architecture img {
+  position: absolute;
+  right: -14%;
+  bottom: 0;
+  width: clamp(260px, 36vw, 520px);
+  opacity: 0.07;
+  mix-blend-mode: multiply;
 }
 
 .cover-board {
@@ -870,9 +986,10 @@ main {
 }
 
 .clearspace {
+  position: relative;
   display: grid;
   place-items: center;
-  min-height: 170px;
+  min-height: 190px;
   margin-top: 28px;
   border: 1px dashed rgba(16, 23, 20, 0.28);
   outline: 16px solid rgba(219, 229, 223, 0.34);
@@ -880,17 +997,21 @@ main {
   text-align: center;
 }
 
-.clearspace span {
-  color: var(--forest);
-  font-family: var(--font-head);
-  font-size: clamp(2.5rem, 5vw, 4.4rem);
-  font-weight: 500;
-  line-height: 1;
+.clearspace .brand-logo {
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  width: min(300px, 58%);
+  transform: translate(-50%, -50%);
 }
 
 .clearspace p {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 20px;
   max-width: 320px;
-  margin: 10px 0 0;
+  margin: 0 auto;
   color: rgba(42, 42, 42, 0.58);
   font-size: 0.92rem;
   line-height: 1.4;
@@ -1099,7 +1220,7 @@ main {
   line-height: 0.92;
 }
 
-.mont-samples {
+.dm-sans-samples {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
@@ -1108,23 +1229,38 @@ main {
   border: 1px solid var(--line);
 }
 
-.mont-samples div {
+.dm-sans-samples div {
   padding: clamp(22px, 3vw, 34px);
   background: #ffffff;
 }
 
-.mont-samples span {
+.dm-sans-samples span {
   display: block;
   margin-bottom: 18px;
   color: var(--moss);
   font-size: clamp(1.2rem, 1.8vw, 1.8rem);
 }
 
-.mont-samples p {
+.dm-sans-samples p {
   margin: 0;
   color: #000000;
   font-size: clamp(1.05rem, 1.45vw, 1.35rem);
   line-height: 1.35;
+}
+
+.font-sample--regular,
+.font-sample--regular p,
+.font-sample--regular span {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+.font-sample--semibold,
+.font-sample--semibold p,
+.font-sample--semibold span,
+.font-sample--semibold strong {
+  font-family: var(--font-body);
+  font-weight: 600;
 }
 
 .body-sample {
@@ -1816,15 +1952,14 @@ button:hover {
   animation: reveal 780ms ease both;
   animation-timeline: view();
   animation-range: entry 0% cover 28%;
+  opacity: 1;
 }
 
 @keyframes reveal {
   from {
-    opacity: 0;
     transform: translateY(28px);
   }
   to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -1852,12 +1987,22 @@ button:hover {
 }
 
 @media (max-width: 1040px) {
+  .cover-hero,
   .cover-inner,
   .essence-layout,
   .logo-cards,
   .device-layout,
   .motion-identity {
     grid-template-columns: 1fr;
+  }
+
+  .cover-hero {
+    align-items: start;
+    min-height: auto;
+  }
+
+  .hero-architecture {
+    min-height: clamp(420px, 56svh, 620px);
   }
 
   .keyword-grid,
@@ -1870,7 +2015,7 @@ button:hover {
   }
 
   .identity-guidelines,
-  .mont-samples {
+  .dm-sans-samples {
     grid-template-columns: 1fr;
   }
 
@@ -1959,7 +2104,44 @@ button:hover {
   }
 
   .cover {
-    padding-top: 0;
+    padding: calc(68px + env(safe-area-inset-top)) 20px 0;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(236, 232, 224, 0.7)),
+      #ffffff;
+  }
+
+  .cover-hero {
+    padding: 40px 0 54px;
+    gap: 36px;
+  }
+
+  .cover-signature {
+    width: min(320px, 84vw);
+    margin: 28px 0 34px;
+  }
+
+  .cover-copy > p:last-child {
+    max-width: none;
+  }
+
+  .hero-architecture {
+    min-height: 380px;
+  }
+
+  .hero-architecture::before {
+    inset: 7% 2% 6% 16%;
+  }
+
+  .hero-surface--main {
+    inset: 20% 10% 18% 0;
+  }
+
+  .hero-surface--shadow {
+    inset: 30% 0 8% 22%;
+  }
+
+  .hero-sun {
+    right: 6%;
   }
 
   .cover-inner .brand-logo {
@@ -1994,7 +2176,7 @@ button:hover {
   .identity-guidelines,
   .voice-grid,
   .motion-identity,
-  .mont-samples,
+    .dm-sans-samples,
   .hierarchy,
   .spacing-rules,
   .visual-grid,
